@@ -29,7 +29,6 @@ public class GreetingClient {
 
     public String recvMessage() throws IOException {
         String line = in.readLine();
-        System.out.println(line);
         return line;
     }
 
