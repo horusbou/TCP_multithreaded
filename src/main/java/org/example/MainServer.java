@@ -2,9 +2,8 @@ package org.example;
 
 import java.io.IOException;
 
-public class Main {
+public class MainServer {
     public static void main(String[] args) throws IOException {
-        System.out.println("Hello world!");
         GreetingServer server=new GreetingServer(6666);
         server.start();
 

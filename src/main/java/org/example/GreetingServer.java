@@ -23,6 +23,8 @@ public class GreetingServer {
         out = new PrintWriter(clientSocket.getOutputStream(),true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String greeting = in.readLine();
+        System.out.println(greeting);
+
         if("hello server".equals(greeting)){
             out.println("hello client");
         }else{

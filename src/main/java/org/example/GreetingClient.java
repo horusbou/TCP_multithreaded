@@ -22,9 +22,14 @@ public class GreetingClient {
         out = new PrintWriter(clientSocket.getOutputStream(),true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
-    public String sendMessage(String msg) throws IOException {
+    public void sendMessage(String msg) throws IOException {
         out.println(msg);
+
+    }
+
+    public String recvMessage() throws IOException {
         String line = in.readLine();
+        System.out.println(line);
         return line;
     }
 
