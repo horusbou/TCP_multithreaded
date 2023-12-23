@@ -7,13 +7,13 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class GreetingServer {
+public class EchoServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
     private int port;
-    public GreetingServer(int port){
+    public EchoServer(int port){
         this.port = port;
 
     }
@@ -22,12 +22,15 @@ public class GreetingServer {
         clientSocket = serverSocket.accept();
         out = new PrintWriter(clientSocket.getOutputStream(),true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        String greeting = in.readLine();
-        if("hello server".equals(greeting)){
-            out.println("hello client");
-        }else{
-            out.println("unrecognised greeting");
+        String inputLine;
+        while(( inputLine = in.readLine())!=null){
+            if("end".equals(inputLine)){
+                out.println("bye bye.");
+                break;
+            }
+            out.println(inputLine);
         }
+
     }
 
     public void stop() throws IOException {

@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello world!");
-        GreetingServer server=new GreetingServer(6666);
+        EchoServer server=new EchoServer(6666);
         server.start();
 
     }
